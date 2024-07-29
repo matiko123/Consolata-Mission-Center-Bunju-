@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Color Change</title>
+    <style>
+        /* Style for the specific date */
+        .highlighted-date {
+            background-color: rgb(187, 231, 117); /* Change to whatever color you want */
+        }
+    </style>
+</head>
+<body>
+    <form class="calendar">
+        <!-- Date input -->
+        <input type="date" id="date" name="date">
+    </form>
+    <button id="submitbutton">Submit Now</button>
+    <script>
+        // Get the date input element
+        var dateInput = document.getElementById('date');
+
+        // Array of dates to highlight
+        var dates = ['2024-05-22', '2024-06-15', '2024-07-10']; // Add more dates as needed
+
+        // Add event listener to apply styling when the input changes
+        dateInput.addEventListener('input', function() {
+            // Get the selected date
+            var selectedDate = dateInput.value;
+
+            // Check if the selected date is in the array of dates
+            if (dates.includes(selectedDate)) {
+                // Apply styling to the input
+                dateInput.classList.add('highlighted-date');
+            } else {
+                // Remove styling if the selected date is not in the array
+                dateInput.classList.remove('highlighted-date');
+                document.getElementById("submitbutton").style.display="block";
+            }
+        });
+    </script>
+</body>
+</html>
